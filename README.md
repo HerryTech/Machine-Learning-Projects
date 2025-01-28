@@ -1,4 +1,4 @@
-# 🚀 Machine Learning Projects Repository
+# 🚀 Machine Learning Projects
 
 Welcome to the **Machine Learning Projects** repository. This repository contains various machine learning projects that showcase different techniques, models, and datasets for solving real-world problems.
 
