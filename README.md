@@ -1,6 +1,6 @@
 # 🚀 Machine Learning Projects Repository
 
-Welcome to the **Machine Learning Projects** repository! This repository contains various machine learning projects that showcase different techniques, models, and datasets for solving real-world problems.
+Welcome to the **Machine Learning Projects** repository. This repository contains various machine learning projects that showcase different techniques, models, and datasets for solving real-world problems.
 
 ## 📂 Project List
 Below are the machine learning projects currently available in this repository:
@@ -11,8 +11,4 @@ Below are the machine learning projects currently available in this repository:
 - **Dataset:** Sonar signals dataset
 - **Model Used:** Logistic Regression, Svm, Decision Tree, Random Forest
 - **Project Folder:** [`rock-vs-mine`](./rock-vs-mine/)
-- **How to Run:**
-  ```sh
-  cd rock-vs-mine
-  python rock-vs-mine-prediction.ipynb
-  ```
+- **Accuracy_score:** 95%
