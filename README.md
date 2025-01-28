@@ -11,4 +11,4 @@ Below are the machine learning projects currently available in this repository:
 - **Dataset:** Sonar signals dataset
 - **Model Used:** Logistic Regression, Svm, Decision Tree, Random Forest
 - **Project Folder:** [`rock-vs-mine`](./rock-vs-mine/)
-- **Accuracy_score:** 95%
+- **Accuracy Score:** 95%
