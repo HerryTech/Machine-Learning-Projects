@@ -9,7 +9,7 @@ Below are the machine learning projects currently available in this repository:
 - **Description:** This project classifies sonar signals as either "rock" or "mine" using machine learning.
 - **Technologies Used:** Python, Scikit-Learn, Pandas, NumPy
 - **Dataset:** Sonar signals dataset
-- **Model Used:** Logistic Regression, Decision Tree, Random Forest
+- **Model Used:** Logistic Regression, Svm, Decision Tree, Random Forest
 - **Project Folder:** [`rock-vs-mine`](./rock-vs-mine/)
 - **How to Run:**
   ```sh
