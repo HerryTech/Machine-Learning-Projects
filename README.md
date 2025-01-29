@@ -10,5 +10,13 @@ Below are the machine learning projects currently available in this repository:
 - **Technologies Used:** Python, Scikit-Learn, Pandas, NumPy
 - **Dataset:** Sonar signals dataset
 - **Model Used:** Logistic Regression, Svm, Decision Tree, Random Forest
-- **Project Folder:** [`rock-vs-mine`](./rock-vs-mine/)
+- **Project Folder:** [`rock_vs_mine`](./rock_vs_mine/)
 - **Accuracy Score:** 95%
+
+### 2️⃣ **Sport Celebrity Classification**
+- **Description:** A machine learning-based classification model to identify sports celebrities, including **Lionel Messi, Serena Williams, Roger Federer, Virat Kohli, and Maria Sharapova**.
+- **Technologies Used:** Python, OpenCV, PyWavelet, Scikit-learn, Numpy
+- **Dataset:** Custom dataset of sports celebrities
+- **Model Used:** SVM, Logistic Regression, Decision Tree
+- **Project Folder:** [`sport_celeb_classification`](./sport_celeb_classification/)
+- **Accuracy Score:** 90%
