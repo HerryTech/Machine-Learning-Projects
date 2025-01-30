@@ -5,6 +5,8 @@ Welcome to the **Machine Learning Projects** repository. This repository contain
 ## 📂 Project List
 Below are the machine learning projects currently available in this repository:
 
+### 1️⃣ **Real Estate House Pricing**
+
 ### 1️⃣ **Sonar Rock vs Mine Classification**
 - **Description:** This project classifies sonar signals as either "rock" or "mine" using machine learning.
 - **Technologies Used:** Python, Scikit-Learn, Pandas, NumPy
