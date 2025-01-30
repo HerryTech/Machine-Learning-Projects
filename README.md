@@ -17,7 +17,7 @@ Below are the machine learning projects currently available in this repository:
 
 ### 3️⃣ **Sport Celebrity Classification**
 - **Description:** A machine learning-based classification model to identify sports celebrities, including **Lionel Messi, Serena Williams, Roger Federer, Virat Kohli, and Maria Sharapova**.
-- **Technologies Used:** Python, OpenCV, PyWavelet, Scikit-learn, Numpy
+- **Technologies Used:** Python, OpenCV, PyWavelet, Scikit-learn, Pandas, Numpy
 - **Dataset:** Custom dataset of sports celebrities
 - **Model Used:** SVM, Logistic Regression, Decision Tree
 - **Project Folder:** [`sport_celeb_classification`](./sport_celeb_classification/)
