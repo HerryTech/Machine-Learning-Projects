@@ -6,7 +6,8 @@ Welcome to the **Machine Learning Projects** repository. This repository contain
 Below are the machine learning projects currently available in this repository:
 
 ### 1️⃣ **Real Estate House Pricing**
-- **Description:** This project predicts the house
+- **Description:** This project predicts Bengalarus house pricing
+- **Technologies:**
 
 ### 2️⃣ **Sonar Rock vs Mine Classification**
 - **Description:** This project classifies sonar signals as either "rock" or "mine" using machine learning.
