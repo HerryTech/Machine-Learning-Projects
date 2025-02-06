@@ -9,6 +9,7 @@ Below are the machine learning projects currently available in this repository:
 - **Description:** This project predicts Bengalarus house pricing
 - **Technologies Used:** Python, Scikit-Learn, Pandas, Numpy
 - **Dataset**: Bengalarus House dataset on Kaggle
+- 
 
 ### 2️⃣ **Sonar Rock vs Mine Classification**
 - **Description:** This project classifies sonar signals as either "rock" or "mine" using machine learning.
