@@ -6,6 +6,7 @@ Welcome to the **Machine Learning Projects** repository. This repository contain
 Below are the machine learning projects currently available in this repository:
 ### 1️⃣ **Real Estate Prediction**
 - **Description:** This project predicts real estate prices using machine learning by analyzing factors like location, size, and amenities. It provides price estimates to help buyers, sellers, and investors make informed decisions.
+- **Technologies Used:**
 
 
 ### 2️⃣ **Sonar Rock vs Mine Classification**
