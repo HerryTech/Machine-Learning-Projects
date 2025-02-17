@@ -4,8 +4,10 @@ Welcome to the **Machine Learning Projects** repository. This repository contain
 
 ## 📂 Project List
 Below are the machine learning projects currently available in this repository:
+### 1️⃣ **Real Estate Prediction**
 
-### 1️⃣ **Sonar Rock vs Mine Classification**
+
+### 2️⃣ **Sonar Rock vs Mine Classification**
 - **Description:** This project classifies sonar signals as either "rock" or "mine" using machine learning.
 - **Technologies Used:** Python, Scikit-Learn, Pandas, NumPy
 - **Dataset:** Sonar signals dataset
@@ -13,7 +15,7 @@ Below are the machine learning projects currently available in this repository:
 - **Project Folder:** [`rock_vs_mine`](./rock_vs_mine/)
 - **Accuracy Score:** 95%
 
-### 2️⃣ **Sport Celebrity Classification**
+### 3️⃣ **Sport Celebrity Classification**
 - **Description:** A machine learning-based classification model to identify sports celebrities, including **Lionel Messi, Serena Williams, Roger Federer, Virat Kohli, and Maria Sharapova**.
 - **Technologies Used:** Python, OpenCV, PyWavelet, Scikit-learn, Numpy
 - **Dataset:** Custom dataset of sports celebrities
