@@ -8,4 +8,4 @@ seaborn==0.12.2
 nltk==3.8.1
 requests==2.31.0
 beautifulsoup4==4.12.2
-gunicorn
+gunicorn==23.0.0
