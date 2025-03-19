@@ -31,6 +31,11 @@ def load_data(true_path, fake_path):
     # Select relevant columns
     df = df[["title", "text", "label"]]
     
+    # Check and remove missing values
+    print("Before removing missing values:\n", df.isnull().sum())
+    df = df.dropna()
+    print("After removing missing values:\n", df.isnull().sum())
+
     # Remove duplicates
     df = df.drop_duplicates()
     
@@ -39,7 +44,7 @@ def load_data(true_path, fake_path):
 def clean_text(text):
     """Cleans text by removing punctuation, stopwords, and applying lemmatization"""
     text = text.lower()
-    text = re.sub(r'[^a-zA-Z\s]', '', text)  # Keep only letters and spaces
+    text = re.sub(r'[^a-zA-Z\s]', '', text) 
     words = text.split()
     words = [lemmatizer.lemmatize(word) for word in words if word not in stop_words]
     return " ".join(words)
@@ -48,7 +53,17 @@ def preprocess_and_save(df, output_path):
     """Applies text cleaning and saves the cleaned dataset"""
     df["title"] = df["title"].astype(str).map(clean_text)
     df["text"] = df["text"].astype(str).map(clean_text)
-    
+
+    # Replace empty strings with NaN (if cleaning removes all words)
+    df["title"] = df["title"].replace("", np.nan)
+    df["text"] = df["text"].replace("", np.nan)
+
+    # Check and remove missing values
+    print("Before removing missing values in cleaned data:\n", df.isnull().sum())
+    df = df.dropna()
+    print("After removing missing values in cleaned data:\n", df.isnull().sum())
+
+    # Save cleaned dataset
     df.to_csv(output_path, index=False)
     print(f"✅ Cleaned data saved to {output_path}")
 
