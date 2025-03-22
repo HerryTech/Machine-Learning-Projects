@@ -20,7 +20,7 @@ def predict_news(text, model_path, vectorizer_path):
         prediction = model.predict(text_tfidf)[0]
 
         # Return result
-        result = "Real" if prediction == 1 else "Fake"
+        result = "Real News" if prediction == 1 else "Fake News"
         logger.info(f"Prediction: {result}")
         return result
 
@@ -29,7 +29,7 @@ def predict_news(text, model_path, vectorizer_path):
 
 if __name__ == "__main__":
     sample_text = input("Enter news text to predict: ")
-    result = predict_news(sample_text, "../model/model.pkl", "../model/vectorizer.pkl")
+    result = predict_news(sample_text, "model/model.pkl", "model/vectorizer.pkl")
     print(f"\nPredicted News Category: {result}")
 
 

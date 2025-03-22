@@ -42,4 +42,4 @@ def train_model(data_path, model_path, vectorizer_path):
         raise CustomException(f"Error in training model: {e}", sys)
 
 if __name__ == "__main__":
-    train_model("../data/processed/cleaned_news.csv", "../model/model.pkl", "../model/vectorizer.pkl")
+    train_model("data/processed/cleaned_news.csv", "model/model.pkl", "model/vectorizer.pkl")

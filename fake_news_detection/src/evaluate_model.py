@@ -45,4 +45,4 @@ def evaluate_model(data_path, model_path, vectorizer_path):
         raise CustomException(f"Error in evaluating model: {e}", sys)
 
 if __name__ == "__main__":
-    evaluate_model("../data/processed/cleaned_news.csv", "../model/model.pkl", "../model/vectorizer.pkl")
+    evaluate_model("data/processed/cleaned_news.csv", "model/model.pkl", "model/vectorizer.pkl")
