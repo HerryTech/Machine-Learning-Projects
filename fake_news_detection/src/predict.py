@@ -1,24 +1,40 @@
-import joblib
-import os
+import sys
+import pandas as pd
+from src.utils import load_model
+from src.logger import get_logger
+from src.exception import CustomException
 
-# Get the absolute path of the current script
-current_dir = os.path.dirname(os.path.abspath(__file__))
+logger = get_logger(__name__)
 
-# Use the correct relative path to the model directory
-model_path = os.path.join(current_dir, "../model/model.pkl")
-vectorizer_path = os.path.join(current_dir, "../model/vectorizer.pkl")
+def predict_news(text, model_path, vectorizer_path):
+    """Predict whether a given news text is Fake or Real."""
+    try:
+        # Load trained model and vectorizer
+        model = load_model(model_path)
+        vectorizer = load_model(vectorizer_path)
 
-# Load trained model and vectorizer
-model = joblib.load(model_path)
-vectorizer = joblib.load(vectorizer_path)
+        # Transform input text
+        text_tfidf = vectorizer.transform([text])
 
-def predict_news(news_text):
-    '''Predict whether a given news article is Fake or Real.'''
-    text_vectorised = vectorizer.transform([news_text])
-    prediction = model.predict(text_vectorised)[0]
-    return "Fake News" if prediction == 0 else "Real News"
+        # Make prediction
+        prediction = model.predict(text_tfidf)[0]
+
+        # Return result
+        result = "Real" if prediction == 1 else "Fake"
+        logger.info(f"Prediction: {result}")
+        return result
+
+    except Exception as e:
+        raise CustomException(f"Error in predicting news: {e}", sys)
 
 if __name__ == "__main__":
-    news_text = input("Enter a news article: ")
-    print("\nPrediction:", predict_news(news_text))
+    sample_text = input("Enter news text to predict: ")
+    result = predict_news(sample_text, "../model/model.pkl", "../model/vectorizer.pkl")
+    print(f"\nPredicted News Category: {result}")
+
+
+
+
+
+
 
