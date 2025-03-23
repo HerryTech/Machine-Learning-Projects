@@ -29,7 +29,7 @@ def train_model(data_path, model_path, vectorizer_path):
         logger.info(f"TF-IDF feature shape: {X_train_tfidf.shape}")
 
         # Train model
-        model = LogisticRegression(class_weight='balanced', C=0.5, random_state=42)
+        model = LogisticRegression()
         model.fit(X_train_tfidf, y_train)
 
         # Save model and vectorizer
