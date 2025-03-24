@@ -24,3 +24,6 @@ def predict():
         result = "Real News" if prediction == 1 else "Fake News"
 
         return render_template("result.html", news_text = news_text, prediction = result)
+    
+if __name__ == "__main__":
+    app.run(debug = True)
