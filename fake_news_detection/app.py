@@ -15,10 +15,9 @@ if st.button("Check News"):
     if news_text:
         text_tfidf = vectorizer.transform([news_text])
         prediction = model.predict(text_tfidf)[0]
-        if prediction[0] == 1:
+        if prediction == 0:
             st.error("🚨 This news article is FAKE!")
         else:
             st.success("✅ This news article is REAL!")
     else:
         st.warning("⚠️ Please enter some text.")
-
