@@ -23,4 +23,4 @@ def predict():
         prediction = model.predict(text_tfidf)[0]
         result = "Real News" if prediction == 1 else "Fake News"
 
-        return render_template("result.html", news_text = news_text, prediction = result )
+        return render_template("result.html", news_text = news_text, prediction = result)
