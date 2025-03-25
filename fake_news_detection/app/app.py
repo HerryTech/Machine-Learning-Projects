@@ -1,18 +1,34 @@
-import streamlit as st
-from src.utils import load_model
 import os
+import sys
+import streamlit as st
 
-# Load model & vectorizer
-model = load_model("../model/model.pkl")
-vectorizer = load_model("../model/vectorizer.pkl")
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-# Function to clear text input
+from src.utils import load_model
+
+# ✅ Get absolute path of the model directory
+MODEL_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../model"))
+
+# ✅ Load model & vectorizer using absolute paths
+model_path = os.path.join(MODEL_DIR, "model.pkl")
+vectorizer_path = os.path.join(MODEL_DIR, "vectorizer.pkl")
+
+# ✅ Check if files exist before loading
+if not os.path.exists(model_path):
+    st.error(f"❌ Model file not found: {model_path}")
+if not os.path.exists(vectorizer_path):
+    st.error(f"❌ Vectorizer file not found: {vectorizer_path}")
+
+model = load_model(model_path)
+vectorizer = load_model(vectorizer_path)
+
+# Function to clear text
 def clear_text():
     st.session_state.news_text = ""
 
 # Streamlit UI
 st.title("📰 Fake News Detection App")
-st.write("Enter a news article and check if it's **FAKE** or **REAL**.")
+st.write("Enter a news article and check if it's FAKE or REAL.")
 
 # Ensure session state has 'news_text'
 if "news_text" not in st.session_state:
@@ -21,26 +37,28 @@ if "news_text" not in st.session_state:
 # Input text area
 news_text = st.text_area("✍️ Enter news text:", key="news_text")
 
-# 🔹 Create two columns for buttons
+# 🔹 Create two columns for side-by-side buttons
 col1, col2 = st.columns([5, 1])
 
-# "Check News" button
+# "Check News" button in the first column
 with col1:
     if st.button("Check News"):
         if news_text:
             text_tfidf = vectorizer.transform([news_text])
             prediction = model.predict(text_tfidf)[0]
-            probability = model.predict_proba(text_tfidf)[0]
+            probability = model.predict_proba(text_tfidf)[0]  # Get probability
 
-            fake_prob, real_prob = probability[0], probability[1]
+            fake_prob = probability[0]
+            real_prob = probability[1]
 
             if prediction == 0:
-                st.error(f"🚨 This news article is **FAKE**! (Confidence: {fake_prob:.2%})")
+                st.error(f"🚨 This news article is FAKE! (Confidence: {fake_prob:.2%})")
             else:
-                st.success(f"✅ This news article is **REAL**! (Confidence: {real_prob:.2%})")
+                st.success(f"✅ This news article is REAL! (Confidence: {real_prob:.2%})")
+
         else:
             st.warning("⚠️ Please enter some text.")
 
-# "Clear Text" button
+# "Clear Text" button in the second column
 with col2:
-    st.button("Clear Text", on_click=clear_text)
+    st.button("Clear Text", on_click=clear_text)  

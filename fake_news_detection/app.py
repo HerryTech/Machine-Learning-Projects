@@ -27,9 +27,7 @@ col1, col2 = st.columns([5, 1])
 # "Check News" button
 with col1:
     if st.button("Check News"):
-        if not model or not vectorizer:
-            st.error("❌ Model is not loaded. Please check your deployment.")
-        elif news_text:
+        if news_text:
             text_tfidf = vectorizer.transform([news_text])
             prediction = model.predict(text_tfidf)[0]
             probability = model.predict_proba(text_tfidf)[0]
