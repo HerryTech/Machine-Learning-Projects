@@ -1,29 +1,23 @@
-from flask import Flask, request, render_template
-import pickle
-import os
+import streamlit as st
 from src.utils import load_model
 
-app = Flask(__name__)
+model = load_model("model/model.pkl")
+vectorizer = load_model("model/vectorizer.pkl")
 
-MODEL_PATH = "model/model.pkl"
-VECTORIZER = "model/vectorizer.pkl"
+#streamlit UI
+st.title("Fake New Dectection App")
+st.write("Enter a news article and check if it's FAKE or REAL.")
 
-model = load_model(MODEL_PATH)
-vectorizer = load_model(VECTORIZER)
+#input text area
+news_text = st.text_area("Enter news text:", "")
 
-@app.route("/")
-def home():
-    return render_template("index.html")
-
-@app.route("/predict", methods = ["POST"])
-def predict():
-    if request.method == "POST":
-        news_text = request.form["news_text"]
+if st.button("Check News"):
+    if news_text:
         text_tfidf = vectorizer.transform([news_text])
         prediction = model.predict(text_tfidf)[0]
-        result = "Real News" if prediction == 1 else "Fake News"
-
-        return render_template("result.html", news_text = news_text, prediction = result)
-    
-if __name__ == "__main__":
-    app.run(debug = True)
+        if prediction == 0:
+            st.error("🚨 This news article is FAKE!")
+        else:
+            st.success("✅ This news article is REAL!")
+    else:
+        st.warning("⚠️ Please enter some text.")
