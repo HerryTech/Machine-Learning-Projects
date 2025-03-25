@@ -6,12 +6,12 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from src.utils import load_model
 
-# Load model & vectorizer
-model_path = os.path.join(os.path.dirname(__file__), "..", "model", "model.pkl")
-vectorizer_path = os.path.join(os.path.dirname(__file__), "..", "model", "vectorizer.pkl")
+# Get absolute path
+MODEL_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../model"))
 
-model = load_model(model_path)
-vectorizer = load_model(vectorizer_path)
+# Load model & vectorizer using the absolute path
+model = load_model(os.path.join(MODEL_DIR, "model.pkl"))
+vectorizer = load_model(os.path.join(MODEL_DIR, "vectorizer.pkl"))
 
 # Function to clear text
 def clear_text():
