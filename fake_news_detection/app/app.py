@@ -7,8 +7,11 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from src.utils import load_model
 
 # Load model & vectorizer
-model = load_model("../model/model.pkl")
-vectorizer = load_model("../model/vectorizer.pkl")
+model_path = os.path.join(os.path.dirname(__file__), "..", "model", "model.pkl")
+vectorizer_path = os.path.join(os.path.dirname(__file__), "..", "model", "vectorizer.pkl")
+
+model = load_model(model_path)
+vectorizer = load_model(vectorizer_path)
 
 # Function to clear text
 def clear_text():
