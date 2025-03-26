@@ -3,14 +3,9 @@ import sys
 import pickle
 import streamlit as st
 
-repo_owner = "HerryTech"  
-repo_name = "3Signet-Internship"  
-model = "fake_news_detection/model/model.pkl"
-vectorizer = "fake_news_detection/model/vectorizer.pkl"
-
-# Construct the raw content URL for the CSV file
-model_path = f"https://raw.githubusercontent.com/{repo_owner}/{repo_name}/main/{model}"
-vectorizer_path = f"https://raw.githubusercontent.com/{repo_owner}/{repo_name}/main/{vectorizer}"
+# Define the paths
+model_path = "model/model.pkl"
+vectorizer_path = "model/vectorizer.pkl"
 
 # Load the saved model and vectorizer
 with open(model_path, "rb") as model_file:
