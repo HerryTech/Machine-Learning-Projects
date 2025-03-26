@@ -1,5 +1,4 @@
 import pandas as pd
-import joblib
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
@@ -7,6 +6,7 @@ from src.utils import save_model
 from src.logger import get_logger
 from src.exception import CustomException
 import sys
+import pickle
 
 logger = get_logger(__name__)
 
