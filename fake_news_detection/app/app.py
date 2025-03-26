@@ -1,12 +1,7 @@
 import os
 import sys
 import streamlit as st
-
-# Automatically get the root directory
-ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-sys.path.insert(0, ROOT_DIR)  # Ensure the parent directory is in the path
-
-from src.utils import load_model  # ✅ Import should work now
+from src.utils import load_model
 
 # ✅ Get absolute path of the model directory
 MODEL_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../model"))
