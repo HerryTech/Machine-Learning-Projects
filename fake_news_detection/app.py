@@ -1,57 +1,48 @@
-import os
-import sys
 import pickle
 import streamlit as st
 
-# Define the paths
-model_path = "fake_news_detection/model/model.pkl"
-vectorizer_path = "fake_news_detection/model/vectorizer.pkl"
-
 # Load the saved model and vectorizer
-with open(model_path, "rb") as model_file:
+with open("fake_news_detection/model/model.pkl", "rb") as model_file:
     model = pickle.load(model_file)
 
-with open(vectorizer_path, "rb") as vectorizer_file:
+with open("fake_news_detection/model/vectorizer.pkl", "rb") as vectorizer_file:
     vectorizer = pickle.load(vectorizer_file)
-print("Model and vectorizer loaded successfully!")
 
-# Function to clear text
-def clear_text():
-    st.session_state.news_text = ""
+# Initialize Streamlit app
+def main():
+    st.title("📰 Fake News Detection App")
+    st.write("Enter a news article and check if it's FAKE or REAL.")
 
-# Streamlit UI
-st.title("📰 Fake News Detection App")
-st.write("Enter a news article and check if it's FAKE or REAL.")
+    # Initialize session state for inputs
+    if "news_text" not in st.session_state:
+        st.session_state.news_text = ""
 
-# Ensure session state has 'news_text'
-if "news_text" not in st.session_state:
-    st.session_state.news_text = ""
+    # Text input for the news article
+    st.session_state.news_text = st.text_area("✍️ Enter news text:", value=st.session_state.news_text)
 
-# Input text area
-news_text = st.text_area("✍️ Enter news text:", key="news_text")
+    # Buttons for prediction and clearing text
+    col1, col2 = st.columns([5, 1])
 
-# 🔹 Create two columns for side-by-side buttons
-col1, col2 = st.columns([5, 1])
+    with col1:
+        if st.button("Check News"):
+            if st.session_state.news_text:
+                text_tfidf = vectorizer.transform([st.session_state.news_text])
+                prediction = model.predict(text_tfidf)[0]
+                probability = model.predict_proba(text_tfidf)[0]
 
-# "Check News" button in the first column
-with col1:
-    if st.button("Check News"):
-        if news_text:
-            text_tfidf = vectorizer.transform([news_text])
-            prediction = model.predict(text_tfidf)[0]
-            probability = model.predict_proba(text_tfidf)[0]  # Get probability
+                fake_prob = probability[0]
+                real_prob = probability[1]
 
-            fake_prob = probability[0]
-            real_prob = probability[1]
-
-            if prediction == 0:
-                st.error(f"🚨 This news article is FAKE! (Confidence: {fake_prob:.2%})")
+                if prediction == 0:
+                    st.error(f"🚨 This news article is FAKE! (Confidence: {fake_prob:.2%})")
+                else:
+                    st.success(f"✅ This news article is REAL! (Confidence: {real_prob:.2%})")
             else:
-                st.success(f"✅ This news article is REAL! (Confidence: {real_prob:.2%})")
+                st.warning("⚠️ Please enter some text.")
 
-        else:
-            st.warning("⚠️ Please enter some text.")
+    with col2:
+        if st.button("Clear Text"):
+            st.session_state.news_text = ""
 
-# "Clear Text" button in the second column
-with col2:
-    st.button("Clear Text", on_click=clear_text)  
+if __name__ == "__main__":
+    main()
