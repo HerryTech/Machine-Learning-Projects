@@ -1,5 +1,5 @@
 import pandas as pd
-import pickle
+import joblib
 import os
 
 def save_data(df: pd.DataFrame, output_path: str):
@@ -10,10 +10,10 @@ def save_data(df: pd.DataFrame, output_path: str):
 
 def save_model(model, filename):
     """Save the trained model to a file."""
-    with open(filename, 'wb') as file:
-        pickle.dump(model, file)
+    joblib.dump(model, filename)
+    print(f"✅ Model successfully saved to {filename}")
 
 def load_model(filename):
     """Load a saved model from a file."""
-    with open(filename, 'rb') as file:
-        return pickle.load(file)
+    return joblib.load(filename)
+
