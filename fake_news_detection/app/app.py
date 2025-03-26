@@ -1,13 +1,7 @@
 import os
 import sys
+import joblib
 import streamlit as st
-
-try:
-    import joblib
-except ModuleNotFoundError:
-    st.warning("⚠️ joblib not found. Installing now...")
-    os.system("pip install joblib")
-    import joblib
 
 # Define the paths
 model_path = "model/model.pkl"
