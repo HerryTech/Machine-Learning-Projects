@@ -1,23 +1,17 @@
 import os
 import sys
 import streamlit as st
-from src.utils import load_model
+import joblib
 
-# ✅ Get absolute path of the model directory
-MODEL_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../model"))
+# Define the paths
+model_path = "model/model.pkl"
+vectorizer_path = "model/vectorizer.pkl"
 
-# ✅ Load model & vectorizer using absolute paths
-model_path = os.path.join(MODEL_DIR, "model.pkl")
-vectorizer_path = os.path.join(MODEL_DIR, "vectorizer.pkl")
+# Load the saved model and vectorizer
+model = joblib.load(model_path)
+vectorizer = joblib.load(vectorizer_path)
 
-# ✅ Check if files exist before loading
-if not os.path.exists(model_path):
-    st.error(f"❌ Model file not found: {model_path}")
-if not os.path.exists(vectorizer_path):
-    st.error(f"❌ Vectorizer file not found: {vectorizer_path}")
-
-model = load_model(model_path)
-vectorizer = load_model(vectorizer_path)
+print("Model and vectorizer loaded successfully!")
 
 # Function to clear text
 def clear_text():
