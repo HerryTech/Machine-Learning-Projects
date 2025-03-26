@@ -2,10 +2,10 @@ import pickle
 import streamlit as st
 
 # Load the saved model and vectorizer
-with open("fake_news_detection/model/model.pkl", "rb") as model_file:
+with open("model/model.pkl", "rb") as model_file:
     model = pickle.load(model_file)
 
-with open("fake_news_detection/model/vectorizer.pkl", "rb") as vectorizer_file:
+with open("model/vectorizer.pkl", "rb") as vectorizer_file:
     vectorizer = pickle.load(vectorizer_file)
 
 # Initialize Streamlit app
