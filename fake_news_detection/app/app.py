@@ -1,7 +1,7 @@
 import pickle
 import streamlit as st
 
-# Define the paths
+# Define the model and vectorizer paths
 model_path = "fake_news_detection/model/model.pkl"
 vectorizer_path = "fake_news_detection/model/vectorizer.pkl"
 
