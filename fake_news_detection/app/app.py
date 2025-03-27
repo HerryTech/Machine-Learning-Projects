@@ -1,3 +1,14 @@
+[theme]
+primaryColor = "#FF4B4B"
+backgroundColor = "#022222"
+secondaryBackgroundColor = "#292730"
+textColor = "#FAFAFA"
+font = "sans serif"
+
+
+
+
+
 import pickle
 import streamlit as st
 
