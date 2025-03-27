@@ -1,15 +1,6 @@
 import pickle
 import streamlit as st
-import os
 
-st.write("Checking .streamlit directory contents:")
-
-streamlit_dir = ".streamlit"
-if os.path.exists(streamlit_dir):
-    st.write(os.listdir(streamlit_dir))  # Show files in .streamlit
-else:
-    st.write("❌ .streamlit directory NOT found!")
-    
 # Define the paths
 model_path = "fake_news_detection/model/model.pkl"
 vectorizer_path = "fake_news_detection/model/vectorizer.pkl"
