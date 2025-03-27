@@ -6,6 +6,11 @@ __pycache__/
 # C extensions
 *.so
 
+# Ignore everything inside .streamlit except config.toml
+.streamlit/*
+!.streamlit/config.toml
+
+
 # Distribution / packaging
 .Python
 build/
