@@ -2,28 +2,14 @@ import pickle
 import streamlit as st
 import os
 
-st.title("Debugging Streamlit Theme")
+st.write("Checking .streamlit directory contents:")
 
-# List all files in the root directory
-st.write("### Root Directory Files:")
-st.write(os.listdir("."))
-
-# Check if .streamlit directory exists
-if os.path.exists(".streamlit"):
-    st.write("### .streamlit Directory Found ✅")
-    st.write("Files inside .streamlit:", os.listdir(".streamlit"))
-
-    # Read and display config.toml content
-    config_path = ".streamlit/config.toml"
-    if os.path.exists(config_path):
-        st.write("### config.toml Found ✅")
-        with open(config_path, "r") as f:
-            st.code(f.read(), language="toml")
-    else:
-        st.write("❌ config.toml NOT found inside .streamlit!")
+streamlit_dir = ".streamlit"
+if os.path.exists(streamlit_dir):
+    st.write(os.listdir(streamlit_dir))  # Show files in .streamlit
 else:
     st.write("❌ .streamlit directory NOT found!")
-
+    
 # Define the paths
 model_path = "fake_news_detection/model/model.pkl"
 vectorizer_path = "fake_news_detection/model/vectorizer.pkl"
