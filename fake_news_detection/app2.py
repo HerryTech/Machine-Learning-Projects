@@ -1,26 +1,6 @@
 import pickle
 import streamlit as st
 
-st.set_page_config(
-    page_title="My App",
-    page_icon="🚀",
-    layout="wide",
-    initial_sidebar_state="expanded",
-)
-
-# Apply custom theme
-st.markdown(
-    """
-    <style>
-        body { background-color: #FFFFFF; }
-        .stApp { background-color: #F0F2F6; }
-        .stMarkdown, .stTextInput { color: #262730; }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
-
 # Define the paths
 model_path = "fake_news_detection/model/model.pkl"
 vectorizer_path = "fake_news_detection/model/vectorizer.pkl"
