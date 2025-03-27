@@ -1,5 +1,8 @@
 import pickle
 import streamlit as st
+import os
+
+os.environ["STREAMLIT_CONFIG"] = os.path.join(os.getcwd(), ".streamlit", "config.toml")
 
 # Define the paths
 model_path = "fake_news_detection/model/model.pkl"
