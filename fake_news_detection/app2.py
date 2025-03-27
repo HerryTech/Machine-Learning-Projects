@@ -2,11 +2,6 @@ import pickle
 import streamlit as st
 import os
 
-os.environ["STREAMLIT_CONFIG"] = os.path.join(os.getcwd(), ".streamlit", "config.toml")
-
-st.title("Testing Custom Theme")
-st.write("If this works, your theme should be applied!")
-
 # Define the paths
 model_path = "fake_news_detection/model/model.pkl"
 vectorizer_path = "fake_news_detection/model/vectorizer.pkl"
