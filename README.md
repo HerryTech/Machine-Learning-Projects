@@ -13,7 +13,7 @@ This repository is a collection of hands-on machine learning projects. Each proj
 ### 🔍 Fake News Detection
 - **Description**: A machine learning model to detect fake news articles based on text analysis.
 - **Tech Stack**: Python, Scikit-Learn, NLP (TF-IDF, Count Vectorizer), Logistic Regression, Random Forest
-- **Status**: In Progress
+- **Status**: Completed
 - **Folder**: [fake_news_detection](./fake_news_detection)
 
 _More projects will be added soon!_
