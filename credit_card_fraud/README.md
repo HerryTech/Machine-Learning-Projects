@@ -8,7 +8,7 @@ This project aims to predict credit card fraud using machine learning techniques
 - **notebook/**: Jupyter notebook for exploration.
 - **src/**: Contains source codes for data loading, model training, evaluation e.t.c.
 - **model/**: Contains the trained models.
-- **app/**: Contains streamlit app for deployment...
+- **app/**: Contains streamlit app for deployment.
 
 # Requirements
 
