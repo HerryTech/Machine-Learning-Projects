@@ -7,7 +7,7 @@ from src.utils import save_data
 
 logger = get_logger(__name__)
 
-def load_clean_data(data_path):
+def load_clean_data(data_path, output_path):
     """load and clean the dataset"""
     try:
         logger.info("Loading dataset...")
@@ -27,4 +27,9 @@ def load_clean_data(data_path):
 
     except Exception as e:
         raise CustomException (f"Error loading dataset: {e}", sys)
+    
+if __name__ == "__main__":
+    load_clean_data("data/raw/creditcard.csv", "data/processed/cleanedcredit.csv")
+
+
 
