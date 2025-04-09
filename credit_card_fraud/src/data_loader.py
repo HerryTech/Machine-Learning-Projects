@@ -28,6 +28,9 @@ def load_clean_data(data_path, output_path):
     except Exception as e:
         raise CustomException (f"Error loading dataset: {e}", sys)
     
+def preprocessing_and_save():
+    """"""
+    
 if __name__ == "__main__":
     load_clean_data("data/raw/creditcard.csv", "data/processed/cleanedcredit.csv")
 
