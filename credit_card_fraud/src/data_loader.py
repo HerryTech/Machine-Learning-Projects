@@ -3,6 +3,7 @@ import numpy as np
 import sys
 from src.logger import get_logger
 from src.exception import CustomException
+from src.utils import save_data
 
 logger = get_logger(__name__)
 
@@ -20,7 +21,7 @@ def load_clean_data(data_path):
         logger.info(f"Dataset loaded and cleaned successfully! Total Dataset: {len(df)}")
 
         #save cleaned data
-        save_data()
+        save_data(df, output_path)
 
         return df
 
