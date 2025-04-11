@@ -17,6 +17,21 @@ def split_dataset(data_path):
         logger.info("Data splitting starting...")
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 42)
         logger.info(f"Data splitting successful! - Total training set: {len(X_train)}")
+        return X_train, X_test, y_train, y_test
 
     except Exception as e:
         raise CustomException(f"Error in splitting dataset: {e}", sys)
+    
+def handle_imbalance(X_train, y_train):
+    """Handle dataset imbalance using SMOTE"""
+    try:
+        logger.info("Handling imbalance begins...")
+        smote = SMOTE(random_state = 42)
+        X_train_smote, y_train_smote = smote.fit_resample(X_train, y_train)
+        logger.info(f"Training data after SMOTE: {len(X_train_smote)}")
+    
+    except Exception as e:
+        raise CustomException(f"Error handling imbalance: {e}", sys)
+    
+if __name__ == "__main__":
+    split_dataset("data/processed/cleanedcredit.csv")
