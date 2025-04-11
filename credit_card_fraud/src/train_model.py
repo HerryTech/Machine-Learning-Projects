@@ -34,4 +34,5 @@ def handle_imbalance(X_train, y_train):
         raise CustomException(f"Error handling imbalance: {e}", sys)
     
 if __name__ == "__main__":
-    split_dataset("data/processed/cleanedcredit.csv")
+    X_train, X_test, y_train, y_test = split_dataset("data/processed/cleanedcredit.csv")
+    handle_imbalance(X_train, y_train)
