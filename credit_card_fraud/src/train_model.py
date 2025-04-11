@@ -29,6 +29,7 @@ def handle_imbalance(X_train, y_train):
         smote = SMOTE(random_state = 42)
         X_train_smote, y_train_smote = smote.fit_resample(X_train, y_train)
         logger.info(f"Training data after SMOTE: {len(X_train_smote)}")
+        return X_train_smote, y_train_smote
     
     except Exception as e:
         raise CustomException(f"Error handling imbalance: {e}", sys)
