@@ -4,7 +4,7 @@ import sys
 from sklearn.preprocessing import StandardScaler
 from src.logger import get_logger
 from src.exception import CustomException
-from src.utils import save_data
+from src.utils import save_data, load_data
 
 logger = get_logger(__name__)
 
@@ -12,7 +12,7 @@ def load_clean_data(data_path):
     """load and clean the dataset"""
     try:
         logger.info("Loading dataset...")
-        df = pd.read_csv(data_path)
+        df = load_data(data_path)
 
         #remove missing values
         df.dropna(inplace = True)
