@@ -35,7 +35,7 @@ def handle_imbalance(X_train, y_train):
     except Exception as e:
         raise CustomException(f"Error handling imbalance: {e}", sys)
     
-def train_model(X_train_smote, y_train_smote):
+def train_model(X_train_smote, y_train_smote, model_path):
     """Train Logistic Regression model for credit card fraud detection"""
     try:
         logger.info("Logistic Regression starting...")
@@ -44,7 +44,7 @@ def train_model(X_train_smote, y_train_smote):
         logger.info("Modeling completed!")
         
         #save model
-
+        save_model(model, model_path)
 
     except Exception as e:
         raise CustomException(f"Error training model: {e}", sys)
@@ -52,4 +52,4 @@ def train_model(X_train_smote, y_train_smote):
 if __name__ == "__main__":
     X_train, X_test, y_train, y_test = split_dataset("data/processed/cleanedcredit.csv")
     X_train_smote, y_train_smote = handle_imbalance(X_train, y_train)
-    train_model(X_train_smote, y_train_smote)
+    train_model(X_train_smote, y_train_smote, "model/model.pkl")
