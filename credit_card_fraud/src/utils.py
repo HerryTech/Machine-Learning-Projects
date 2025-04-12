@@ -19,8 +19,9 @@ def save_model(model, model_path):
 
 def load_model(model_path):
     """Load the trained model using joblib"""
-    joblib.load(model_path)
+    model = joblib.load(model_path)
     print("Model successfully loaded")
+    return model
 
 
 
