@@ -1,6 +1,7 @@
 import pandas as pd
 import sys
 from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
 from imblearn.over_sampling import SMOTE
 from src.logger import get_logger
 from src.exception import CustomException
@@ -34,6 +35,17 @@ def handle_imbalance(X_train, y_train):
     except Exception as e:
         raise CustomException(f"Error handling imbalance: {e}", sys)
     
+def train_model(X_train_smote, y_train_smote):
+    """Train Logistic Regression model for credit card fraud detection"""
+    try:
+        logger.info("Logistic Regression starting...")
+        model = LogisticRegression()
+        model.fit(X_train_smote, y_train_smote)
+        logger.info("Modeling completed!")
+        return model
+    except Exception as e:
+        raise CustomException(f"Error training model: {e}", sys)
+    
 if __name__ == "__main__":
     X_train, X_test, y_train, y_test = split_dataset("data/processed/cleanedcredit.csv")
-    handle_imbalance(X_train, y_train)
+    X_train_smote, y_train_smote = handle_imbalance(X_train, y_train)
