@@ -5,7 +5,7 @@ from sklearn.linear_model import LogisticRegression
 from imblearn.over_sampling import SMOTE
 from src.logger import get_logger
 from src.exception import CustomException
-from src.utils import load_data
+from src.utils import load_data, save_model
 
 logger = get_logger(__name__)
 
@@ -42,7 +42,10 @@ def train_model(X_train_smote, y_train_smote):
         model = LogisticRegression()
         model.fit(X_train_smote, y_train_smote)
         logger.info("Modeling completed!")
-        return model
+        
+        #save model
+
+
     except Exception as e:
         raise CustomException(f"Error training model: {e}", sys)
     
