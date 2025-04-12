@@ -9,10 +9,13 @@ from src.train_model import split_dataset
 
 logger = get_logger(__name__)
 
-def evaluate_model():
+def evaluate_model(data_path):
     """Evaluate the trained model using some metrics"""
     try:
         split_dataset(data_path)
 
     except Exception as e:
         raise CustomException (f"Error in evaluating model: {e}", sys)
+    
+if __name__ == "__main__":
+    
