@@ -34,6 +34,7 @@ def evaluate_model(data_path, model_path):
         plt.xlabel("Predicted")
         plt.ylabel("Actual")
         plt.title("Confusion Matrix")
+        plt.show()
 
     except Exception as e:
         raise CustomException (f"Error in evaluating model: {e}", sys)
