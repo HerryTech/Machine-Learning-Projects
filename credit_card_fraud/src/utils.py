@@ -12,7 +12,10 @@ def save_data(df, output_path):
     df.to_csv(output_path, index = False)
     print(f"Data successfully saved to {output_path}")
 
-def save_model():
+def save_model(model, model_path):
+    """save model using joblib"""
+    joblib.dump(model, model_path)
+    print(f"Model successfully saved to {model_path}")
 
 
 
