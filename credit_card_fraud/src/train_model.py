@@ -27,7 +27,7 @@ def split_dataset(data_path):
 def handle_imbalance(X_train, y_train):
     """Handle dataset imbalance using SMOTE"""
     try:
-        logger.info("Handling imbalance begins...")
+        logger.info("Handling imbalance...")
         smote = SMOTE(random_state = 42)
         X_train_smote, y_train_smote = smote.fit_resample(X_train, y_train)
         logger.info(f"Training data after SMOTE: {len(X_train_smote)}")
@@ -39,7 +39,7 @@ def handle_imbalance(X_train, y_train):
 def train_model(X_train_smote, y_train_smote, model_path):
     """Train Logistic Regression model for credit card fraud detection"""
     try:
-        logger.info("Logistic Regression starting...")
+        logger.info("Logistic Regression modeling starting...")
         model = LogisticRegression()
         model.fit(X_train_smote, y_train_smote)
         logger.info("Modeling completed!")
