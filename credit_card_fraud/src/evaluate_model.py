@@ -7,3 +7,6 @@ from src.logger import get_logger
 logger = get_logger(__name__)
 
 def evaluate_model():
+    """Evaluate the trained model using some metrics"""
+    try:
+        
