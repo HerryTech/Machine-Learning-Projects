@@ -49,3 +49,4 @@ def train_model(X_train_smote, y_train_smote):
 if __name__ == "__main__":
     X_train, X_test, y_train, y_test = split_dataset("data/processed/cleanedcredit.csv")
     X_train_smote, y_train_smote = handle_imbalance(X_train, y_train)
+    train_model(X_train_smote, y_train_smote)

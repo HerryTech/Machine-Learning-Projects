@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import joblib
 
 def load_data(data_path):
     """Load dataset"""
@@ -10,5 +11,8 @@ def save_data(df, output_path):
     """Save dataframe to CSV"""
     df.to_csv(output_path, index = False)
     print(f"Data successfully saved to {output_path}")
+
+def save_model():
+
 
 
