@@ -6,6 +6,7 @@ from imblearn.over_sampling import SMOTE
 from src.logger import get_logger
 from src.exception import CustomException
 from src.utils import load_data, save_model
+import joblib
 
 logger = get_logger(__name__)
 
