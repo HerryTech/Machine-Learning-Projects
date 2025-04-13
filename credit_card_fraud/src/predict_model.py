@@ -21,12 +21,12 @@ def predict_fraud(input_dict, model_path):
         df[feature_to_scale] = scale.transform(df[feature_to_scale])
 
         #make prediction
-        prediction = model.predict(df)
+        prediction = model.predict(df)[0]
 
         #return result
         result = "Non-fraudulent transaction" if prediction == 0 else "Fraudulent transaction"
+
         logger.info(f"Prediction: {result}")
         return result
-
 
 
