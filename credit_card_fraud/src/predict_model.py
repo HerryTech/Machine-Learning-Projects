@@ -29,6 +29,7 @@ def predict_fraud(input_dict, model_path):
         #return result
         result = "Non-fraudulent transaction" if prediction == 0 else "Fraudulent transaction"
         logger.info(f"Prediction: {result}")
+        print(f"The transaction is a {result}")
         return result, probability
     
     except Exception as e:
