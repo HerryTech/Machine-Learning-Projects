@@ -6,7 +6,7 @@ from src.utils import load_model
 
 logger = get_logger(__name__)
 
-def make_prediction(df, model_path):
+def predict_fraud(df, model_path):
     """Predict whether a transaction is fraudulent or not"""
     try:
         model = load_model(model_path)
