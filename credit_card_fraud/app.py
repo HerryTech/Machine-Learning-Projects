@@ -16,21 +16,21 @@ sample = {}
 #create input field
 with st.form("Fraud form"):
     for col in columns:
-        sample[col] = st.number_input(label = col, value = 0.0, format="%.6f")
+        sample[col] = st.number_input(label = col)
 
     submitted = st.form_submit_button("🔍 Predit Fraud")
 
     if submitted:
+        try:
         #define path and load model
-        model_path = "model/model.pkl"
-        model = load_model(model_path)
-        result, probability = predict_fraud(sample, model_path)
-        st.success(f"Prediction: {result}")
-        st.info(f"Confidence level: {probability:.2%}")
+            model_path = "model/model.pkl"
+            model = load_model(model_path)
+            result, probability = predict_fraud(sample, model_path)
+            st.success(f"Prediction: {result}")
+            st.info(f"Confidence level: {probability:.2%}")
     
-    else:
-        st.error("Please input the values")
-
+        except Exception as e:
+            st.error(f"⚠️ Error during prediction: {e}")
 
 
     
