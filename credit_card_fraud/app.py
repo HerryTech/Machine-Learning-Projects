@@ -6,5 +6,5 @@ from src.utils import load_model
 model_path = "model/model.pkl"
 model = load_model(model_path)
 
-def main():
-    st.title("Credit Card Fraud Detection")
+st.set_page_config(page_title = "Credit Card Fraud Detector", page_icon="💳")
+st.title("💳Credit Card Fraud Detection")
