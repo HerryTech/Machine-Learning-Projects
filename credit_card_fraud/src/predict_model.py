@@ -24,7 +24,7 @@ def predict_fraud(sample, model_path):
 
         #make prediction
         prediction = model.predict(df)[0]
-        probability = model.predict_prob(df)[0][1]
+        probability = model.predict_proba(df)[0][1]
 
         #return result
         result = "Non-fraudulent transaction" if prediction == 0 else "Fraudulent transaction"
