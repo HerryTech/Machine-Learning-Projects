@@ -23,5 +23,10 @@ def predict_fraud(input_dict, model_path):
         #make prediction
         prediction = model.predict(df)
 
+        #return result
+        result = "Non-fraudulent transaction" if prediction == 0 else "Fraudulent transaction"
+        logger.info(f"Prediction: {result}")
+        return result
+
 
 
