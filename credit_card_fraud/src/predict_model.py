@@ -36,7 +36,7 @@ def predict_fraud(sample, model_path):
         raise CustomException (f"Error in prediction: {e}", sys)
     
 if __name__ == "__main__":
-    df = input("Enter the transaction details you want to predict")
+    df = input("Enter the transaction details you want to predict:")
     predict_fraud(df, "model/model.pkl")
 
 
