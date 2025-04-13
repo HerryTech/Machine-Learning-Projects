@@ -8,3 +8,4 @@ model = load_model(model_path)
 
 st.set_page_config(page_title = "Credit Card Fraud Detector", page_icon="💳")
 st.title("💳Credit Card Fraud Detection")
+st.markdon("Fill in the transaction details below to check for potential fraud.")
