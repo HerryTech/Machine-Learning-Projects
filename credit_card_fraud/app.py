@@ -1,7 +1,7 @@
+import pandas as pd
 import joblib
 import streamlit as st
-from src.utils import load_model
-from src.predict_model import predict_fraud
+from sklearn.preprocessing import StandardScaler
 
 st.set_page_config(page_title = "Credit Card Fraud Detector", page_icon="💳")
 st.title("💳Credit Card Fraud Detection")
@@ -37,9 +37,23 @@ for col in columns:
 if st.button("🔍 Predit Fraud"):
     try:
         #define path and load model
-        model_path = "Credit_card_fraud/model/model.pkl"
-        model = load_model(model_path)
-        result, probability = predict_fraud(sample, model_path)
+        model_path = "credit_card_fraud/model/model.pkl"
+        model = joblib.load(model_path)
+
+        #convert input to DataFrame
+        df = pd.DataFrame([sample])
+
+        #scale data to predict
+        feature_to_scale = ["Amount", "Time"]
+        scale = StandardScaler()
+        df[feature_to_scale] = scale.fit_transform(df[feature_to_scale])
+
+        #make prediction
+        prediction = model.predict(df)[0]
+        probability = model.predict_proba(df)[0][1]
+
+        #return result
+        result = "Non-fraudulent transaction" if prediction == 0 else "Fraudulent transaction"
         st.success(f"This is a {result}")
         st.info(f"Confidence level: {probability:.2%}")
         
