@@ -22,11 +22,15 @@ def predict_fraud(input_dict, model_path):
 
         #make prediction
         prediction = model.predict(df)[0]
+        probability = model.predict_proba(df)[0][1]
 
         #return result
         result = "Non-fraudulent transaction" if prediction == 0 else "Fraudulent transaction"
-
         logger.info(f"Prediction: {result}")
-        return result
+        return result, probability
+    
+if __name__ == "__main__":
+    df = input("Enter the transaction to predict: ")
+    predict_fraud(df, "model/model.pkl")
 
 
