@@ -37,6 +37,6 @@ def predict_fraud(sample, model_path):
     
 if __name__ == "__main__":
     sample = input("Enter the transaction details you want to predict:")
-    predict_fraud(sample, "model/model.pkl")
+    predict_fraud(sample, "credit_card_fraud/model/model.pkl")
 
 
