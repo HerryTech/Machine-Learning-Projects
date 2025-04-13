@@ -24,8 +24,14 @@ with st.form("Fraud form"):
         #define path and load model
         model_path = "model/model.pkl"
         model = load_model(model_path)
+        result, probability = predict_fraud(sample, model_path)
+        st.success(f"Prediction: {result}")
+        st.info(f"Confidence level: {probability:.2%}")
+    
+    else:
+        st.error("Please input the values")
 
-        
+
 
     
 
