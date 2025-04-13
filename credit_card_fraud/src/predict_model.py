@@ -9,9 +9,15 @@ logger = get_logger(__name__)
 def predict_fraud(df, model_path):
     """Predict whether a transaction is fraudulent or not"""
     try:
+        #load trained model
         model = load_model(model_path)
+
+        #scale data to predict
         feature_to_scale = ["Amount", "Time"]
         scale = StandardScaler()
-        df[feature_to_scale] = scale.fit_transform(df[feature_to_scale])
+        df[feature_to_scale] = scale.transform(df[feature_to_scale])
+
+        #make prediction
+        
 
 
