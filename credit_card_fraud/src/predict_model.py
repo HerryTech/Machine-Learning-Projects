@@ -1,4 +1,6 @@
 import pandas as pd
+import sys
+import joblib
 from sklearn.preprocessing import StandardScaler
 from src.logger import get_logger
 from src.exception import CustomException
@@ -28,6 +30,9 @@ def predict_fraud(input_dict, model_path):
         result = "Non-fraudulent transaction" if prediction == 0 else "Fraudulent transaction"
         logger.info(f"Prediction: {result}")
         return result, probability
+    
+    except Exception as e:
+        raise CustomException (f"Error in prediction: {e}", sys)
     
 if __name__ == "__main__":
     df = input("Enter the transaction to predict: ")
