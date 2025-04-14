@@ -14,3 +14,5 @@ This project aims to predict credit card fraud using machine learning techniques
 
 - Python 3.x
 - pip install -r requirements.txt
+
+Check out the project on [streamlit app](https://rb.gy/wacvkg)
