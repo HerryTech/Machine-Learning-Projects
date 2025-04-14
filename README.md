@@ -7,7 +7,7 @@ This repository is a collection of hands-on machine learning projects. Each proj
 - 📂 **Data**: Raw and processed datasets
 - 📜 **Notebooks**: Jupyter notebooks for experimentation and visualization
 - 📝 **Scripts**: Python scripts for model training, evaluation, and deployment
-- 📊 **Reports**: Insights and findings from the project
+- 📊 **App**: Streamlit deployment code
 
 ## 🏆 Projects
 ### 🔍 Fake News Detection
