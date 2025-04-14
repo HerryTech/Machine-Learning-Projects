@@ -16,4 +16,10 @@ This repository is a collection of hands-on machine learning projects. Each proj
 - **Status**: Completed
 - **Folder**: [fake_news_detection](./fake_news_detection)
 
+### 🔍 Credit Card Fraud Detection
+- **Description**: A machine learning model designed to identify fraudulent credit card transactions using anomaly detection and classification techniques. The project focuses on distinguishing legitimate transactions from fraudulent ones based on patterns in transaction data.
+- **Tech Stack**:Python, Scikit-Learn, Pandas, NumPy, Logistic Regression
+- **Status**: Completed
+- **Folder**:
+
 _More projects will be added soon!_...
