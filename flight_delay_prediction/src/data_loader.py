@@ -5,7 +5,7 @@ from src.exception import CustomException
 
 logger = get_logger(__name__)
 
-def load_flight_data(file_path):
+def load_data(file_path):
     """Function to load data"""
     try:
         logger.info(f"Loading data from {file_path}")
